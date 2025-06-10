@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>현대자동차 인포테인먼트 시스템</title>
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+<div class="top" onclick="topMove()"><img src="src/top.png"></div>
+<div id="container">
+        <div class="section1">
+            <div class="sec1-t1">*전 과정 AI 활용 프로젝트</div>
+            <div class="sec1-t2"><span class="bold">대화형 AI</span>의 결과값을 헤드업 디스플레이에 노출해<br/>자동차 운전자 경험을 강화하는<br/><span class="bold">현대자동차 인포테인먼트 시스템 리뉴얼 </span></div>
+            <div class="proto"><a href="dms.html"><img src="src/proto.png"></a></div>
+            <div class="sec1-t3">DATE.  2025.4.30 - 2025.6.11</div>
+            <div class="sec1-t3">TEAM. 양수진, 허서아, 황민지</div>
+        </div>
+        <div class="section"><img src="src/dms1.png"></div>
+        <div class="section"><img src="src/dms2.png"></div>
+        <div class="section"><img src="src/dms3.png"></div>
+        <div class="section"><img src="src/dms4.png"></div>
+        <div class="section"><img src="src/dms5.png"></div>
+        <div class="section"><img src="src/dms6.png"></div>
+        <div class="section"><img src="src/dms7.png"></div>
+        <div class="sectionL"><img src="src/dms8.png"></div>
+        <div class="sectionL"><img src="src/dms9.png"></div>
+        <div class="sectionL"><img src="src/dms10.png"></div>
+        <div class="sectionL"><img src="src/dms11.png"></div>
+        <div class="footer">
+            <div class="sec1-t4">DATE.  2025.4.30 - 2025.6.11</br>TEAM. 양수진, 허서아, 황민지</div>
+        </div>
+    </div>
+
+<script>
+    let topBtn = document.querySelector('.top');
+
+    function scrollFunctionFooter() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            topBtn.style.display = "block";
+        } else {
+            topBtn.style.display = "none";
+        }
+    }
+    window.onscroll = function() {scrollFunctionFooter()};
+
+    function topMove() {
+        document.getElementById('container').scrollTop = 0;
+    }
+</script>
+</body>
+</html>

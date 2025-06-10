@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현대자동차 인포테인먼트 시스템</title>
+    <link rel="stylesheet" href="dms-ttt.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="middle-bar"></div>
+    <div class="hud-section">
+        <div class="hud-display">
+            <div class="scenario">
+                <div class="scenario-header">주차 도우미 시나리오</div>
+                <div class="scenario-instruction">&lt;화면을 1920*1080으로 설정&gt;</div>
+                <div class="scenario-content" id="scenario-text">헤이 현</div>
+            </div>
+            <div class="hud-graphic">
+                <div class="status-graphic"><img src=""></div>
+                <div class="lower-display">
+                    <div class="left-info">
+                        <div class="state-icon"><img src="src/state-d.png"></div>
+                        <div class="warn-icon"><img src="src/warn.png"></div>
+                        <div class="fuel">352<span class="fuel-eng">km</span></div>
+                        <div class="fuel-bar"><img src="src/fuel-bar.png"></div>
+                    </div>
+                    <div class="center-info">
+                        <div class="speed">13</div>
+                        <div class="speed-unit">km/h</div>
+                    </div>
+                    <div class="right-info">
+                        <div class="dest-text">
+                            <div class="destin">8<span class="destin-eng">m</span></div>
+                            <div class="destination">이마트 별내점</div>
+                        </div>
+                        <div class="destin-bar"><img src="src/dest-bar.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="conversation-section">
+            <div id="time" class="time">00:00:00</div>
+            <div class="log-section">
+                    <div class="gnb"><img src="src/gnb.png"></div>
+                <div class="input-section">
+                    <img src="src/mic.png" class="voice-btn" id="voice-btn">
+                </div>
+                <div class="log-header"><p class="header1">AI 현대</p><p class="header2">종료</p></div>
+                <div class="conversation-log" id="conversation-log"></div>
+            </div>
+        </div>
+        <div class="info-graph">
+            <div class="info-img"></div>
+        </div>
+    </div>
+</div>
+
+<script src="dms-t.js"></script>
+
+</body>
+</html>
+
