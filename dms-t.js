@@ -171,8 +171,7 @@ voiceBtn.addEventListener('click', () => {
     }
 });
 
-
-async function speak(text) {
+function speak(text) {
         isSpeaking = true;
         responsiveVoice.speak(text, 'Korean Female', {
             rate: 1.0,
@@ -182,9 +181,8 @@ async function speak(text) {
                 isSpeaking = false;
                 lastSpeechTime = Date.now();
             }
-        }
-};
-
+        })
+}
 
 
 function addMessage(text, isUser) {
