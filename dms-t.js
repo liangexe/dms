@@ -171,29 +171,29 @@ voiceBtn.addEventListener('click', () => {
     }
 });
 
-async function speak(text) {
-    try {
-        if (typeof responsiveVoice !== "undefined") {
-            if (responsiveVoice.isPlaying()) {
-                responsiveVoice.cancel();
-            }
-
-            speechQueue = [];
-            isSpeaking = true;
-
-            responsiveVoice.speak(text, "Korean Male", {
-                rate: 1,
-                pitch: 0.8,
-                volume: 1,
-                onend: () => {
-                    isSpeaking = false;
-                    lastSpeechTime = Date.now();
-                }
-            });
+function speak(text) {
+    if (typeof responsiveVoice !== "undefined") {
+        if (responsiveVoice.isPlaying()) {
+            responsiveVoice.cancel();
         }
-    } catch (error) {
-        console.error("TTS 오류:", error);
-        isSpeaking = false;
+
+        isSpeaking = true;
+
+        responsiveVoice.speak(text, "Korean Male", {
+            rate: 1,
+            pitch: 0.8,
+            volume: 1,
+            onend: () => {
+                isSpeaking = false;
+                lastSpeechTime = Date.now();
+            }
+        });
+
+        setTimeout(() => {
+            if (!responsiveVoice.isPlaying()) {
+                isSpeaking = false;
+            }
+        }, 5000);
     }
 }
 
