@@ -188,8 +188,15 @@ function speak(text) {
                 lastSpeechTime = Date.now();
             }
         });
+
+        setTimeout(() => {
+            if (!responsiveVoice.isPlaying()) {
+                isSpeaking = false;
+            }
+        }, 3000);
     }
 }
+
 
 function addMessage(text, isUser) {
     const messageDiv = document.createElement('div');
