@@ -171,32 +171,54 @@ voiceBtn.addEventListener('click', () => {
     }
 });
 
-function speak(text) {
+async function speak(text) {
     if (typeof responsiveVoice !== "undefined") {
         if (responsiveVoice.isPlaying()) {
             responsiveVoice.cancel();
         }
 
+        let didSpeak = false;
         isSpeaking = true;
 
         responsiveVoice.speak(text, "Korean Male", {
             rate: 1,
             pitch: 0.8,
             volume: 1,
+            onstart: () => {
+                didSpeak = true;
+                lastSpeechTime = Date.now();
+            },
             onend: () => {
                 isSpeaking = false;
-                lastSpeechTime = Date.now();
             }
         });
 
         setTimeout(() => {
-            if (!responsiveVoice.isPlaying()) {
-                isSpeaking = false;
+            if (!didSpeak) {
+                fallbackSpeak(text);
             }
-        }, 5000);
+        }, 1000);
+    } else {
+        fallbackSpeak(text);
     }
 }
 
+function fallbackSpeak(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.pitch = 0.8;
+    utterance.rate = 1;
+
+    const voices = window.speechSynthesis.getVoices();
+    const koreanMale = voices.find(v => v.lang === 'ko-KR' && v.name.includes('남성'));
+    if (koreanMale) {
+        utterance.voice = koreanMale;
+    }
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+    isSpeaking = false;
+}
 
 function addMessage(text, isUser) {
     const messageDiv = document.createElement('div');
